@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignIn&SignUp</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='faculty_login.css') }}" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:rgb(234, 10, 85)">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        
+        <form action="{{ url_for('flogin') }}" class="sign-in-form" method="POST">
+          <h2 class="title">Sign In</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="number" name="id1" placeholder="Faculty_Id " required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" required />
+          </div>
+          <input type="submit" value="Login" class="btn solid" />
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelector('.sign-in-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+    
+      // Add the slide-out class to the container
+      document.querySelector('.container').classList.add('slide-out');
+    
+      // Wait for the animation to complete before submitting the form
+      setTimeout(() => {
+        this.submit();
+      }, 500); // This should match the duration of the slide-out animation in the CSS
+    });
+  </script>
+    
+    
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignIn&SignUp</title>
+  <link rel="stylesheet" type="text/css" href="/static/faculty_login.css" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:rgb(234, 10, 85)">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+       Sign In Form 
+        <form action="{{url_for('flogin')}}" class="sign-in-form" method="POST">
+          <h2 class="title">Sign In</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="name" name="id1" placeholder="Username" />
+        
+          </div>                                
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" />
+          </div>
+          <input type="submit" value="Login" class="btn solid" />
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+        
+ -->

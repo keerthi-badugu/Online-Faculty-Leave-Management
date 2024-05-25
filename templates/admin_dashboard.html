@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/faculty_dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </head>
+  <body>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="center-message">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="#">Admin Dashboard</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Services
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <a href="{{url_for('viewfaculty')}}">View All Faculty Members</a>
+                        <a href="{{ url_for('view_allocate_leaves') }}">Allocate Leaves</a>
+
+                        <a href="{{ url_for('all_leave_details') }}">View_all_Leave_Details</a>
+                        <a href="{{url_for('view_workload')}}">View Workload</a>
+                        <a href="{{url_for('alogout')}}">Logout</a>  
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+
+<!-- <div class="content">
+    <div class="container">
+        <h2>Welcome, Admin!</h2>
+        <p>Here are some quick links to help you manage your tasks:</p>
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Allocate Leaves</h5>
+                    <p class="card-text">Allocating leaves for employees.</p>
+                    <a href="{{ url_for('view_allocate_leaves') }}" class="btn btn-primary">Allocate</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">View Leaves</h5>
+                    <p class="card-text">Checking leaves from Faculty .</p>
+                    <a href="{{ url_for('all_leave_details') }}" class="btn btn-primary">View Leaves</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">View Workload</h5>
+                    <p class="card-text">View  workload and schedule.</p>
+                    <a href="{{url_for('view_workload')}}" class="btn btn-primary">View Workload</a>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div> -->
+<div class="content">
+    <div class="container-fluid">
+        <h2 style="color: black; margin-left: 30%;">Welcome to Admin Dashboard</h2>
+        <h3>Allocate total leave count</h3>
+        <form method="POST" action="{{ url_for('allocate_leave') }}">
+            <label for="faculty_id">Faculty ID:</label>
+            <input type="text" id="faculty_id" name="faculty_id" required>
+            <br><br>
+            <label for="month_year">Month/Year:</label>
+            <input type="text" id="month_year" name="month_year" placeholder="YYYY-MM" required>
+            <br><br>
+            <label for="total_leavecount">Total Leave Count:</label>
+            <input type="number" id="total_leavecount" name="total_leavecount" required>
+            <br><br>
+            <button type="submit">Allocate</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <center><b style="color: #080808;">{{ message }}</b></center>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</div>
+
+</body>
+</html>
+
+

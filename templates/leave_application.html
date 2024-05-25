@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Applications</title>
+    <link rel="stylesheet" href="/static/leave_application.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h2>Leave Applications</h2>
+        <form action="#" method="POST">
+            <input type="text" name="faculty_id" placeholder="Faculty ID" required>
+            <input type="text" name="leave_type" placeholder="Leave Type" required>
+            <input type="date" name="start_date" required>
+            <input type="date" name="end_date" required>
+            <button class="one" type="submit">Apply for leave</button><br/><br>
+        </form>
+        <a href="{{url_for('faculty_dashboard')}}"><button class="two">Back</button></a>
+    </div>
+</body>
+</html>

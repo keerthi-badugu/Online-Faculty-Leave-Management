@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Faculty Members</title>
+    <link rel="stylesheet" href="/static/view_faculty.css">
+    <style>
+      
+    </style>
+</head>
+<body>
+    <h3>View Faculty Members</h3> 
+    <table>
+        <thead>
+            <tr>
+                <th>Faculty ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Role</th>
+                <th>Department</th>
+
+                <th>Member Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for i in view %}
+            <tr>
+                
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{i[10]}}</td>
+                <td>{{i[7]}}</td>
+                <td>
+                    <form action="#" method="POST">
+                        <input type="hidden"  name="faculty_id" value='{{i[0]}}' style="border: none; padding: 5px;">
+                        <select name="status" style="border: none; padding: 5px;">
+                            <option value="working">Working</option>
+                            <option value="not working">Not Working</option>
+                        </select>
+                        <button style="border: none; padding: 8px;">Submit</button>
+                    </form>
+                    
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

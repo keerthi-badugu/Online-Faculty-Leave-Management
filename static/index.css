@@ -1,0 +1,25 @@
+.one{
+background:
+               url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700459452.jpg) no-repeat center center / cover;
+    background-size: cover;
+    height: calc(112vh - 80px);
+}
+/* index.css */
+.navbar {
+    background-color: #007bff; /* Blue background */
+    margin-bottom: 20px;
+}
+/* Slide-out animation */
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+body.slide-out {
+    animation: slideOut 0.5s forwards;
+}
+

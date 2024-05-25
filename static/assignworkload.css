@@ -1,0 +1,51 @@
+
+        body{
+          font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+       background-image: url('https://img.freepik.com/free-photo/top-view-school-supplies-frame_23-2148565099.jpg?t=st=1713247059~exp=1713250659~hmac=ce158f7fa968b856f7466d080c100758e594c89479da2781c2701c246d7ddfc2&w=900');
+     
+        height: 100vh;
+       width: 95vw;
+       background-size: cover;
+       background-position: center;
+      }
+  
+        
+  
+          h3 {
+              text-align: center;
+              margin-top: 20px;
+          }
+  
+          table {
+             margin-left: 2%;
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 20px;
+          }
+  
+          th, td {
+              padding: 10px;
+              text-align: left;
+              border-bottom: 1px solid #ddd;
+          }
+  
+          th {
+              padding: 10px;
+              text-align: left;
+              background-color: #f5f5f5;
+              border-bottom: 1px solid #ddd;
+          }
+  
+          @media screen and (max-width: 600px) {
+              table {
+                  overflow-x: auto;
+                  display: block;
+              }
+              th, td {
+                  white-space: nowrap;
+                  min-width: 100px; /* Setting a minimum width to prevent cells from becoming too narrow */
+              }
+          }
+      

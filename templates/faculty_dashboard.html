@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/faculty_dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </head>
+  <body>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="center-message">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="#">Faculty Dashboard</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Services
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                          <a class="dropdown-item" href="{{ url_for('apply_leave') }}">Applying for Leave</a>
+                          <a class="dropdown-item" href="{{ url_for('view_status') }}">Leave Status</a>
+                          <a class="dropdown-item" href="{{ url_for('workload') }}">Workload</a>
+                          <a class="dropdown-item" href="{{ url_for('flogout') }}">Logout</a>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+  
+      <div class="content">
+        <div class="container">
+            <h2>Welcome, Faculty Member!</h2>
+            <p>Here are some quick links to help you manage your tasks:</p>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Apply for Leave</h5>
+                        <p class="card-text">Apply for a leave of absence.</p>
+                        <a href="{{url_for('apply_leave')}}" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Leave Status</h5>
+                        <p class="card-text">Check the status of your leave applications.</p>
+                        <a href="{{url_for('view_status')}}" class="btn btn-primary">View Status</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Workload</h5>
+                        <p class="card-text">View your workload and schedule.</p>
+                        <a href="{{url_for('workload')}}" class="btn btn-primary">View Workload</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      <script>
+          document.querySelectorAll('.nav-link').forEach(function(link) {
+              link.addEventListener('click', function(event) {
+                  event.preventDefault(); // Prevent default link behavior
+  
+                  // Add slide-out class to the content container
+                  document.querySelector('.content').classList.add('slide-out');
+  
+                  // Redirect to the link after animation
+                  setTimeout(() => {
+                      window.location.href = this.href;
+                  }, 500); // Match duration with slide-out animation
+              });
+          });
+      </script>
+  </body>
+  </html>
+  
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="/static/faculty_dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:rgb(33, 106, 169)">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('apply_leave')}}">Applying for Leave</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('view_status')}}">Leave Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('workload')}}">Workload</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('flogout')}}">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="container">
+            <h2>Faculty Dashboard</h2> -->
+             <!-- Your content goes here  
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.nav-link').forEach(function(link) {
+          link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+        
+            // Add slide-out class to the content container
+            document.querySelector('.content').classList.add('slide-out');
+        
+            // Redirect to the link after animation
+            setTimeout(() => {
+              window.location.href = this.href;
+            }, 500); // Match duration with slide-out animation
+          });
+        });
+    </script>
+           
+
+
+
+</body>
+ </html>

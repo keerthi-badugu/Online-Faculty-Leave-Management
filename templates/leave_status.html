@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Status</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(https://static.vecteezy.com/system/resources/previews/003/559/339/non_2x/abstract-gradient-blue-and-pink-wave-background-vector.jpg)no-repeat center center/cover;
+    color: #495057;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: hsl(240, 67%, 94%);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+a button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+a button:hover {
+    background-color: #0056b3;
+}
+
+.leave-info {
+    background-color: lightgray;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #007bff;
+    border-radius: 4px;
+}
+
+.leave-info p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+form button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #c82333;
+}
+
+.center {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #343a40;
+}
+
+p {
+    font-size: 16px;
+}
+.p{
+  margin-left: 45%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    a button, form button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .leave-info p {
+        font-size: 14px;
+    }
+}
+
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:aliceblue">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+       
+        <h2>Status of View of Our Leave</h2>
+        {% if view %}
+        {% for i in view %}
+        <div class="leave-info">
+            <p>Faculty Id: {{ i[1] }}</p>
+            <p>Leave Type: {{ i[7] }}</p>
+            <p>Start date: {{ i[2] }}</p>
+            <p>End Date: {{ i[3] }}</p>
+            <p>Status: {{ i[4] }}</p>
+            <p>Application Date: {{ i[5] }}</p>
+            <form method="POST" action="{{url_for('view_status')}}">
+                <input type="hidden" name="leave_id" value="{{ i[0] }}">
+                <p><button type="submit">Delete Leave</button></p> 
+            </form>
+        </div>
+        <a class="p" href="{{url_for('faculty_dashboard')}}"><button>Back</button></a>
+        {% endfor %}
+        {% else %}
+        <p>You did not apply for any leave</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Status</title>
+    <link rel="stylesheet" href="/static/leave_status.css">
+    <style>
+        
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:aliceblue">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+        
+        <h2>Status of View of your Leave</h2>
+        {% if view %}
+        {% for i in view %}
+        <div class="leave-info">
+            <p>Faculty Id: {{i[1]}}</p>
+            <p>Leave Type:{{i[7]}}</p>
+            <p>status : {{i[4]}}</p>
+            <p>Application Date: {{i[5]}}</p>
+                <form method="POST" action="{{url_for('view_status')}}">
+                    <input type="hidden" name="leave_id" value="{{ i[0] }}">
+                    <p><button type="submit">Delete Leave</button></p> 
+                </form>
+           
+        </div>
+        {% endfor %}
+        {% else %}
+       <center><p>you did not apply for any leave</p></center><br> 
+        {% endif %} 
+
+        <center><a href="{{url_for('faculty_dashboard')}}"><button>Back</button></a></center>
+        
+      </div>
+    
+</body>
+</html> -->

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Registration</title>
+    <link rel="stylesheet" href="/static/faculty_registration.css">
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:rgb(234, 10, 85)">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <h2>Faculty Registration Form</h2>
+    <div class="container">
+        <form action="{{ url_for('fregistration') }}" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required/>
+            
+            <label for="id1">Username:</label>
+            <input type="text" id="id1" name="id1" required/>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required/>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required/>
+            
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" required/>
+            
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+            
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role" required/>
+            
+            <label for="ccode">Confirmation Code:</label>
+            <input type="text" id="ccode" name="ccode" required/>
+            
+            
+        </div>
+    </div>
+    <div class="container">
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" required/>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+            <option value="Prefer Not To Say">Prefer Not TO Say</option>
+        </select>
+        
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" required/>
+        
+        <label for="joining_date">Joining Date:</label>
+        <input type="date" id="joining_date" name="joining_date" required/>
+        
+        <label for="blood_group">Blood Group:</label>
+        <input type="text" id="blood_group" name="blood_group" required/>
+        
+        <label for="supervisor">Supervisor:</label>
+        <input type="text" id="supervisor" name="supervisor" required/><br/><br/>
+        
+        <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Registration</title>
+    <link rel="stylesheet" href="/static/faculty_registration.css">
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:rgb(234, 10, 85)">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <h2>Faculty Registration Form</h2>
+    <div id="container1">
+        <form action="{{ url_for('fregistration') }}" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+            
+            <label for="id1">Username:</label>
+            <input type="text" id="id1" name="id1" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" required>
+            
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+            
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role" required>
+            
+            <label for="ccode">Confirmation Code:</label>
+            <input type="text" id="ccode" name="ccode" required>
+            
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" required>
+            
+            <button type="button" onclick="showContainer2()">Next</button>
+        </form>
+    </div>
+    <div id="container2" style="display: none;">
+        <form action="{{ url_for('fregistration') }}" method="POST">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required>
+            
+            <label for="joining_date">Joining Date:</label>
+            <input type="date" id="joining_date" name="joining_date" required>
+            
+            <label for="blood_group">Blood Group:</label>
+            <input type="text" id="blood_group" name="blood_group" required>
+            
+            <label for="supervisor">Supervisor:</label>
+            <input type="text" id="supervisor" name="supervisor" required>
+            
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script>
+        function showContainer2() {
+            document.getElementById("container1").style.display = "none";
+            document.getElementById("container2").style.display = "block";
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Registration</title>
+    <link rel="stylesheet" href="/static/faculty_registration.css">
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:rgb(234, 10, 85)">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <h2>Faculty Registration Form</h2>
+    <form action="{{ url_for('fregistration') }}" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+        
+        <label for="id1">Username:</label>
+        <input type="text" id="id1" name="id1" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+        
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="role" required>
+        
+        <label for="ccode">Confirmation Code:</label>
+        <input type="text" id="ccode" name="ccode" required>
+        
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" required>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" required>
+        
+        <label for="joining_date">Joining Date:</label>
+        <input type="date" id="joining_date" name="joining_date" required>
+        
+        <label for="blood_group">Blood Group:</label>
+        <input type="text" id="blood_group" name="blood_group" required>
+        
+        <label for="supervisor">Supervisor:</label>
+        <input type="text" id="supervisor" name="supervisor" required>
+        
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html> -->
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Registration</title>
+    <link rel="stylesheet" href="/static/faculty_registration.css">
+
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <b style="color:#b15555">{{ message }}</b>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+        <h2>Faculty Registration</h2>
+        <form  action="{{url_for('fregistration')}}" class="sign-in-form" method="POST">
+            <input type="number" name="id" placeholder="Enter Your ID" required>
+            <input type="text" name="id1" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="number" name="phone_number" placeholder="Phone Number" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="text" name="role" placeholder="Designation" required>
+            <input type="text" name="ccode" placeholder="Enter the faculty code" required><br/><br/>
+            <button type="button" class="bu" id="nextButton">NEXT</button>
+        </form>
+    </div>
+
+    <div class="container2" id="container2">
+        <h2>Additional Information</h2>
+        <form  action="{{url_for('fregistration')}}" class="sign-in-form" method="POST">
+            <label for="date_of_birth">Date of Birth</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" required>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <input type="text" name="department" placeholder="Department" required>
+            
+            <label for="joining_date">Date of Joining</label>
+            <input type="date" id="joining_date" name="joining_date" required>
+            
+            <input type="text" name="blood_group" placeholder="Blood Group" required>
+            <input type="text" name="supervisor" placeholder="Supervisor" required>
+
+            <button type="submit">Submit</button>
+        </form>
+        <a href="{{url_for('flogin')}}">Already have an account? <br/> Please login</a>
+        <p><a href="{{url_for('index')}}">Back</a></p>
+    </div>
+
+    <script>
+        document.getElementById('nextButton').addEventListener('click', function() {
+            document.getElementById('container2').classList.add('show');
+            document.querySelector('.container').style.display = 'none';
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Registration</title>
+    <link rel="stylesheet" href="/static/faculty_registration.css">
+    <style>
+        @keyframes buttonClick {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+        <h2>Faculty Registration</h2>
+        <form action="#" method="POST">
+            <input type="number" name="id" placeholder="Enter Your ID" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="number" name="phone_number" placeholder="Phone Number" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="text" name="role" placeholder="Designation" required>
+           <input type="text" name="ccode" placeholder="Enter the faculty code" required><br/> <br/>
+           <a href="" class="bu">NEXT</a>
+        </form>
+    </div>
+
+    
+
+    <div class="container2">
+        <form>
+            New input fields
+            <label>Date_of_birth</label>
+            <input type="date" name="date_of_birth" placeholder="Date of Birth" required>
+
+            <label>Gender</label>
+            <select name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="text" name="department" placeholder="Department" required>
+            <label>Date_of_Joining</label>
+            <input type="date" name="joining_date" placeholder="Joining Date" required>
+            <input type="text" name="blood_group" placeholder="Blood Group" required>
+            <input type="text" name="supervisor" placeholder="supervisor" required>
+
+            End of new input fields
+            <button type="submit">Submit</button>
+        </form>
+        <a href="{{url_for('flogin')}}">already have an account! please login</a>
+        <p><a href="{{url_for('index')}}">Back</a></p>
+    </div>
+</body>
+</html> -->

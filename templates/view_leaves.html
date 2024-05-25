@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view leaves</title>
+    <link rel="stylesheet" href="/static/view_leaves.css">
+    <style>
+        
+      </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center class="cente"><b style="color: #a74141;">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <table>
+        <tr>
+
+        
+        <th>
+           faculty Id 
+        </th>
+        <th>username</th>
+        <th>role</th>
+        <th>member status</th>
+        <th>leave type</th>
+        <th>start date</th>
+        <th>end date</th>
+        <th>leave status</th>
+    </tr>
+    {% if view %}
+    {% for i in view %}
+    <tr>
+        
+        
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td>{{i[7]}}
+            <form action="#" method="POST">
+                <input type="hidden" value="{{i[8]}}" name="leave_id" style="border: none; padding: 5px;">
+                <select name="status" style="border: none; padding: 5px;">
+                    <option value="pending">pending
+                       
+                    </option>
+                    <option value="approved">
+                        approved
+                    </option>
+                    <option value="rejected">
+                        rejected
+                    </option>
+                </select>
+                
+                <button style="border: none; padding: 8px;">update status</button>
+            </form>
+        </td>
+        {% endfor %}
+        {% else %}
+        <center class="cente"><p style="color:rgb(182, 74, 74),">No one applied for leaves</p></center>
+        {% endif %}
+    </tr>
+    </table>
+</body>
+</html>

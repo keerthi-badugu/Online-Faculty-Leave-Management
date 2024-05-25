@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view leaves</title>
+    <style>
+        body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(https://media.istockphoto.com/id/1158420724/vector/abstract-bokeh-lights-effect-with-purple-blue-background-bokeh-texture-bokeh-background.jpg?s=612x612&w=0&k=20&c=6H8-YZEUdsDxOgIaEarQ-S2TUfS8jxiGihIcPy92Q8s=) no-repeat center center/cover;
+    color: #333;
+    
+}
+
+h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 5%;
+}
+
+th, td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e9e9e9;
+    text-align: left;
+}
+
+th {
+    background-color: #2c3e50;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+form {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 5px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+input[type="number"], select {
+    padding: 8px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: auto;
+}
+
+label {
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.center {
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 12px 10px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    input[type="number"], select {
+        padding: 6px;
+    }
+}
+
+      </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color: #080808;">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <table>
+        <tr>
+            <th>Faculty Id</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Member Status</th>
+            <th>Workload Description</th>
+            <th>Submission Date</th>
+            <th>Status</th>
+            <th>Department</th>
+            <th>leave_id</th>
+            <th>Acceptance Status</th>
+            <th>Assign Work</th>
+            
+            
+        </tr>
+        {% if combined_data %}
+            {% for i in combined_data %}
+                <tr>
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                    <td>{{ i[2] }}</td>
+                    <td>{{ i[3] }}</td>
+                    <td>{{ i[4] }}</td>
+                    <td>{{ i[5] }}</td>
+                    <td>{{ i[6] }}</td>
+                    <td>{{ i[9] }}</td>
+                    <td>{{ i[8] }}</td>
+                    
+                    <td>
+                        <form action="#" method="POST">
+                            <input type="hidden" value="{{ i[7] }}" name="work_id" style="border: none; padding: 5px;">
+                            <select name="status" style="border: none; padding: 5px;">
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                            <button style="border: none; padding: 8px;">Update Status</button>
+                        </form>
+                    </td>
+                    <td>
+                        
+                        <form action="{{url_for('assignworkload',fid=i[0] )}}" method="POST">
+                            <input type="hidden" value="{{ i[9] }}" name="dept" style="border: none; padding: 5px;">
+                            <input type="hidden" value="{{ i[7] }}" name="work_id" style="border: none; padding: 5px;">
+                        
+                            {% for k in data %}
+                            {% if i[0] == [k][0][0] %}
+                            <input type="hidden" value="{{[k][0][4]}}" name="leavecount" style="border: none; padding: 5px;">
+                            {% endif %}
+                            {% endfor %}
+                            
+                                
+                                <select name="assign" style="border: none; padding: 5px;">
+                                   
+                                    {% for j in non_conflicting_pairs %}
+                                        {% if i[0] == j[0]  and i[8] == j[3] %}
+                                            <option value="{{ j[1] }}">{{ j[1] }} with leave_id {{ j[2] }} </option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                                
+                           
+                            <button style="border: none; padding: 8px;">Assign Work</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="10"><center><p style="color:brown;">No workload assignments</p></center></td>
+            </tr>
+        
+        {% endif %}
+    </table>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Workload</title>
+    <link rel="stylesheet" href="/static/view_workload.css">
+    
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color: #080808;">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <table>
+        <tr>
+            <th>Faculty Id</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Member Status</th>
+            <th>Workload Description</th>
+            <th>Submission Date</th>
+            <th>Status</th>
+            <th>Department</th>
+            <th>Acceptance Status</th>
+            <th>Assign Work</th>
+            
+        </tr>
+        {% if view %}
+            {% for i in view %}
+                <tr>
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                    <td>{{ i[2] }}</td>
+                    <td>{{ i[3] }}</td>
+                    <td>{{ i[4] }}</td>
+                    <td>{{ i[5] }}</td>
+                    <td>{{ i[6] }}</td>
+                    <td>{{ i[8] }}</td>
+                    <td>
+                        <form action="#" method="POST">
+                            <input type="hidden" value="{{ i[7] }}" name="work_id" style="border: none; padding: 5px;">
+                            <select name="status" style="border: none; padding: 5px;">
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                            <button style="border: none; padding: 8px;">Update Status</button>
+                        </form>
+                    </td>
+                    <td>
+                        {{i[7]}}
+                        <form action="{{url_for('assignworkload',fid=i[0] )}}" method="POST">
+                            <input type="hidden" value="{{ i[8] }}" name="dept" style="border: none; padding: 5px;">
+                            <input type="hidden" value="{{ i[7] }}" name="work_id" style="border: none; padding: 5px;">
+                        
+                            {% for k in data %}
+                            {% if i[0] == [k][0][0] %}
+                            <input type="hidden" value="{{[k][0][4]}}" name="leavecount" style="border: none; padding: 5px;">
+                            {% endif %}
+                            {% endfor %}
+                            <select name="assign" style="border: none; padding: 5px;">
+                                
+                                {% for j in data1 %}
+                                
+
+                                    {% if i[0] == j[1] and i[8]==j[2] %}
+                                    <option value="{{ j[0] }}">{{ j[0] }}</option>
+                                    {% endif %}
+                        
+                                {% endfor %}
+                            </select>
+                            <button style="border: none; padding: 8px;">Assign Work</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="10"><center><p style="color:brown;">No workload assignments</p></center></td>
+            </tr>
+        
+        {% endif %}
+    </table>
+</body>
+</html> -->

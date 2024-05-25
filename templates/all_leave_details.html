@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Leave Details</title>
+</head>
+<style>
+    /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/003/559/339/non_2x/abstract-gradient-blue-and-pink-wave-background-vector.jpg);
+}
+
+h1, h2, h3 {
+    color: black;
+    text-align: center;
+    margin-top: 3%;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    /* margin-top: 10%; */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h2, h3 {
+    margin-top: 40px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+</style>
+<body>
+    <h1>All Leave Details</h1>
+    <form method="POST" action="{{ url_for('all_leave_details') }}">
+        <label for="faculty_id">Faculty ID:</label>
+        <input type="text" id="faculty_id" name="faculty_id" required>
+        <button type="submit">View Details</button>
+    </form>
+
+    {% if leave_applications_by_faculty and leave_allocations_by_faculty %}
+        <h2>Leave Applications</h2>
+        {% for faculty_id, leaves in leave_applications_by_faculty.items() %}
+            <h3>Faculty ID: {{ faculty_id }}</h3>
+            <ul>
+                {% for leave in leaves %}
+                    <li>
+                        Leave ID: {{ leave.leave_id }}, Start Date: {{ leave.start_date }},
+                        End Date: {{ leave.end_date }}, Status: {{ leave.status }},
+                        Application Date: {{ leave.application_date }},
+                        Response Date: {{ leave.response_date }},
+                        Leave Type: {{ leave.leave_type }},
+                        Allocated Leaves: {{ leave.allocated_leaves }},
+                        Taken Leaves: {{ leave.taken_leaves }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+
+        <h2>Leave Allocations</h2>
+        {% for faculty_id, allocations in leave_allocations_by_faculty.items() %}
+            <h3>Faculty ID: {{ faculty_id }}</h3>
+            <ul>
+                {% for allocation in allocations %}
+                    <li>
+                        Month Year: {{ allocation.month_year }},
+                        Total Leave Count: {{ allocation.total_leavecount }},
+                        Assigned Leave Count: {{ allocation.assigned_leavecount }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

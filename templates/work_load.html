@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workload Management</title>
+    <link rel="stylesheet" href="/static/work_load.css">
+    <style>
+        
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b style="color:aliceblue">{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+    
+
+        <h2>Submit Workload</h2>
+        {% if view %}
+        {% for i in view %}
+        <p> facult id :{{ i[1]}}</p>
+        <p>workload description :{{i[2]}}</p>
+        <p>Date :{{i[3]}}</p>
+        <p>status: {{i[4]}}</p>
+        <p>Administrator response date :{{i[5]}}</p>
+        {% endfor %}
+        <form action="#" method="POST">
+            <textarea name="workload_description" placeholder="Workload Description" rows="4" required></textarea>
+            <input name="dept" placeholder="Department" rows="4" required/>
+
+            <button type="submit">Submit</button>
+        </form>
+       
+        {% else %}
+        <p>submit the work before your leave</p>
+       
+        {% endif %}
+        <a href="{{url_for('faculty_dashboard')}}"><button class="three">Back</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    color: #343a40;
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-DaV--dLIm512JktmV1v8sjkexQFNK7wINe3xxkSsImVsK16E3xNtA4lJNEzn8g1DcRA&usqp=CAU) no-repeat center center / cover;
+    background-size: cover;
+    height: calc(130vh - 100px);
+}
+
+.navbar {
+    background-color: #007bff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-left: 5%;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #d1ecf1;
+    margin-left: 5%;
+}
+
+.dropdown-menu {
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 10%;
+}
+
+.dropdown-item {
+    color: #343a40;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+/* Content styles */
+.content {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.slide-out {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+/* Flash messages */
+.center-message {
+    text-align: center;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .content {
+        padding: 1rem;
+        margin: 1rem;
+    }
+}
+
+/* Add some animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content, .container{
+    animation: fadeIn 0.5s ease-in-out;
+    max-width: 1200px;
+    background-color: lavender;
+    /* padding: 10%; */
+    margin-top: 10%;
+
+}
+
+/* Additional Styling */
+.navbar-nav .nav-item .nav-link.active {
+    font-weight: 700;
+}
+
+.dropdown-menu .dropdown-item.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.center-message {
+    max-width: 600px;
+    margin: 1rem auto;
+}
+/* Add this CSS to your existing stylesheet or create a new one */
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+
+
+
+
+/* admin_dashboard.css 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #2c3e50;
+    overflow-x: hidden;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidenav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ecf0f1;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidenav a:hover {
+    color: #fff;
+    background-color: #2980b9;
+}
+
+.sidenav a.active {
+    color: white;
+    background-color: #2980b9;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 40px;
+    height: 100vh;
+    background: #ecf0f1;
+}
+
+.container-fluid {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    margin: 10px 0;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.center {
+    text-align: center;
+    margin-top: 50px;
+}
+
+ Additional styling for better look 
+.navbar-brand {
+    font-weight: bold;
+    color: #2980b9;
+    font-size: 24px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #2c3e50;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #2980b9;
+}

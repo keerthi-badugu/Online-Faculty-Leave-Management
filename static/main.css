@@ -1,0 +1,255 @@
+body.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: lavender;
+    /* color:#ff7200; */
+    /* background:linear-gradie); */
+    color: #333;
+    /* background-image: url('https://i0.wp.com/backgroundabstract.com/wp-content/uploads/edd/2022/02/4884451-e1656065926158.jpg?resize=1000%2C750&ssl=1'); */
+}
+
+/* Header */
+header {
+    /* background: #007bff; */
+    background: linear-gradient(135deg,hsla(230,96%,62%,0.65),hsla(348,97%,63%,0.65));
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Navigation */
+nav {
+    /* background: lightcoral; */
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    padding: 2rem 1rem;
+}
+
+.hero {
+    /* background: #e9ecef; */
+    background-color: lightcyan;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero .btn {
+    padding: 0.75rem 2rem;
+    /* background: #007bff; */
+    /* background: linear-gradient(135deg,hsla(230,96%,62%,0.65),hsla(348,97%,63%,0.65)); */
+    color: #fff;
+    background-color:#0056b3;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.hero .btn:hover {
+    background: blue;
+}
+
+/* Features */
+.features {
+    margin-bottom: 2rem;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.h h1{
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 42%;
+
+
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    /* text-align: center; */
+    /* justify-content: center; */
+    /* margin-left: 15%; */
+}
+
+.features .feature {
+    /* background: #fff; */
+    background-color: hsl(195, 53%, 79%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.features .feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.features .feature p {
+    font-size: 1rem;
+}
+
+/* About */
+.about {
+    /* background: #e9ecef; */
+    background-color: lightcyan;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.k h1 {
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 42%;
+}
+
+.about p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* News */
+.news {
+    margin-bottom: 2rem;
+}
+
+.news h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.p h1{
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+}
+
+.news .news-item {
+    /* background: #fff; */
+    background-color: hsl(195, 53%, 79%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.news .news-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.news .news-item p {
+    font-size: 1rem;
+}
+
+/* Quick Links */
+.quick-links {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.r h1 {
+    /* font-size: 2rem; */
+    /* margin-bottom: 1rem; */
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 27%;
+}
+
+.quick-links li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+.quick-links a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1rem;
+}
+
+.quick-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    /* background: #343a40; */
+    background: linear-gradient(135deg,hsla(230,96%,62%,0.65),hsla(348,97%,63%,0.65));
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+@media (min-width: 768px) {
+    .features .container, .about .container, .news .container, .quick-links .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .features .feature, .news .news-item {
+        flex: 1 1 30%;
+        margin: 1rem;
+    }
+}

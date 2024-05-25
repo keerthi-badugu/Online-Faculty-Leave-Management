@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Leave Management</title>
+    <link rel="stylesheet" href="/static/main.css">
+    <style>
+        /* Slide-out animation */
+        body.slide-out {
+            overflow: hidden;
+        }
+        .slide-out {
+            animation: slideOut 0.5s ease-out forwards;
+        }
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sri Durga Malleswara Siddhartha Mahila Kalasala</h1>
+    </header>
+    <nav>
+        <!-- Navigation content if any -->
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Welcome to Faculty Leave Management</h2>
+            <p>Efficiently manage faculty leaves with our intuitive system.</p>
+            <a href="#" class="btn" id="getStarted">Get Started</a>
+        </section>
+
+        <div class="h">
+            <h1>Key Features</h1>
+        </div>
+
+        <section class="features">
+            <div class="container">
+                <div class="feature">
+                    <h3>Easy Leave Requests</h3>
+                    <p>Faculty members can easily request leaves through the system.</p>
+                </div>
+                <div class="feature">
+                    <h3>Approval Workflow</h3>
+                    <p>Streamlined approval process for leave requests.</p>
+                </div>
+                <div class="feature">
+                    <h3>Leave Balances</h3>
+                    <p>Keep track of available leave balances for each faculty member.</p>
+                </div>
+            </div>
+        </section>
+        <div class="k">
+            <h1>About Us</h1>
+        </div>
+        <section class="about">
+            <div class="container">
+                <p>Enhance Efficiency: Reduce administrative burden by automating leave request submissions, tracking, and approvals. <br/>
+                    Ensure Transparency: Provide clear visibility into leave balances, approval workflows, and leave policies <br/>
+                    Improve Accessibility: Offer a centralized platform accessible anytime, anywhere, making it convenient for faculty and administrators to manage leaves <br/>
+                    Promote Compliance: Ensure adherence to institutional policies and legal requirements related to faculty leaves..</p>
+                <p>At Faculty Leave Management System, we are committed to providing an efficient, user-friendly platform designed to streamline the process of managing faculty leaves. Our system is tailored to meet the specific needs of academic institutions, ensuring that faculty members, administrators, and staff can handle leave requests and approvals with ease and transparency.</p>
+            </div>
+        </section>
+        <div class="p">
+            <h1>Latest News</h1>
+        </div>
+        <section class="news">
+            <div class="container">
+                <div class="news-item">
+                    <h3>Upcoming Faculty Meeting</h3>
+                    <p>No Updates Yet! <br/> If Any-We Will Notify</p>
+                </div>
+                <div class="news-item">
+                    <h3>New Leave Policy</h3>
+                    <p>Faculty members must submit leave requests through the Faculty Leave Management System (FLMS) online portal Only.</p>
+                </div>
+            </div>
+        </section>
+        <div class="r">
+            <h1>Quick Links</h1>
+        </div>
+        <section class="quick-links">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Faculty Handbook</a></li>
+                    <li><a href="#">Leave Request Form</a></li>
+                    <li><a href="#">Administrative Policies</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Faculty Leave Management</p>
+    </footer>
+    <script>
+        document.getElementById('getStarted').addEventListener('click', function() {
+            document.body.classList.add('slide-out');
+            setTimeout(function() {
+                window.location.href = "{{ url_for('index') }}"; // Update with the actual URL of the next page
+            }, 500);
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Leave Management</title>
+    <link rel="stylesheet" href="/static/main.css">
+    <style>
+        
+        .hidden {
+            display: none;
+        }
+        .fade {
+            opacity: 5000;
+            transition: opacity 10.5s ease-in-out;
+        }
+        .fade-in {
+            opacity: 5000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sri Durga Malleswara Siddhartha Mahila Kalasala</h1>
+    </header>
+    <nav>
+        
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Welcome to Faculty Leave Management</h2>
+            <p>Efficiently manage faculty leaves with our intuitive system.</p>
+            <a href="#" class="btn" id="getStarted">Get Started</a>
+        </section>
+
+        <div class="h">
+            <h1>Key Features</h1>
+        </div>
+
+        <section class="features">
+            <div class="container">
+                <div class="feature">
+                    <h3>Easy Leave Requests</h3>
+                    <p>Faculty members can easily request leaves through the system.</p>
+                </div>
+                <div class="feature">
+                    <h3>Approval Workflow</h3>
+                    <p>Streamlined approval process for leave requests.</p>
+                </div>
+                <div class="feature">
+                    <h3>Leave Balances</h3>
+                    <p>Keep track of available leave balances for each faculty member.</p>
+                </div>
+            </div>
+        </section>
+        <div class="k">
+            <h1>About Us</h1>
+        </div>
+        <section class="about">
+            <div class="container">
+                <p>Enhance Efficiency: Reduce administrative burden by automating leave request submissions, tracking, and approvals. <br/>
+                    Ensure Transparency: Provide clear visibility into leave balances, approval workflows, and leave policies <br/>
+                    Improve Accessibility: Offer a centralized platform accessible anytime, anywhere, making it convenient for faculty and administrators to manage leaves <br/>
+                    Promote Compliance: Ensure adherence to institutional policies and legal requirements related to faculty leaves..</p>
+                <p>At Faculty Leave Management System, we are committed to providing an efficient, user-friendly platform designed to streamline the process of managing faculty leaves. Our system is tailored to meet the specific needs of academic institutions, ensuring that faculty members, administrators, and staff can handle leave requests and approvals with ease and transparency.</p>
+            </div>
+        </section>
+        <div class="p">
+            <h1>Latest News</h1>
+        </div>
+        <section class="news">
+            <div class="container">
+                <div class="news-item">
+                    <h3>Upcoming Faculty Meeting</h3>
+                    <p>No Updates Yet! <br/> If Any-We Will Notify</p>
+                </div>
+                <div class="news-item">
+                    <h3>New Leave Policy</h3>
+                    <p>Faculty members must submit leave requests through the Faculty Leave Management System (FLMS) online portal Only.</p>
+                </div>
+            </div>
+        </section>
+        <div class="r">
+            <h1>Quick Links</h1>
+        </div>
+        <section class="quick-links">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Faculty Handbook</a></li>
+                    <li><a href="#">Leave Request Form</a></li>
+                    <li><a href="#">Administrative Policies</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Faculty Leave Management</p>
+    </footer>
+    <script>
+        document.getElementById('getStarted').addEventListener('click', function() {
+            document.body.classList.add('fade');
+            setTimeout(function() {
+                window.location.href = "{{ url_for('index') }}";
+            }, 500);
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Leave Management</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <header>
+        <h1>Sri Durga Malleswara Siddhartha Mahila Kalasala</h1>
+    </header>
+    <nav>
+        
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Welcome to Faculty Leave Management</h2>
+            <p>Efficiently manage faculty leaves with our intuitive system.</p>
+            <a href="{{url_for('index')}}" class="btn">Get Started</a>
+        </section>
+
+        <div class="h">
+            <h1>Key Features</h1>
+        </div>
+
+        <section class="features">
+            <div class="container">
+                
+                <div class="feature">
+                    <h3>Easy Leave Requests</h3>
+                    <p>Faculty members can easily request leaves through the system.</p>
+                </div>
+                <div class="feature">
+                    <h3>Approval Workflow</h3>
+                    <p>Streamlined approval process for leave requests.</p>
+                </div>
+                <div class="feature">
+                    <h3>Leave Balances</h3>
+                    <p>Keep track of available leave balances for each faculty member.</p>
+                </div>
+            </div>
+        </section>
+        <div class="k">
+            <h1>About Us</h1>
+        </div>
+        <section class="about">
+            <div class="container">
+                
+                <p>Enhance Efficiency: Reduce administrative burden by automating leave request submissions, tracking, and approvals. <br/>
+                    Ensure Transparency: Provide clear visibility into leave balances, approval workflows, and leave policies <br/>
+                    Improve Accessibility: Offer a centralized platform accessible anytime, anywhere, making it convenient for faculty and administrators to manage leaves <br/>
+                    Promote Compliance: Ensure adherence to institutional policies and legal requirements related to faculty leaves..</p>
+                <p>At Faculty Leave Management System, we are committed to providing an efficient, user-friendly platform designed to streamline the process of managing faculty leaves. Our system is tailored to meet the specific needs of academic institutions, ensuring that faculty members, administrators, and staff can handle leave requests and approvals with ease and transparency.</p>
+            </div>
+        </section>
+          <div class="p">
+            <h1>Latest News</h1>
+          </div>
+        <section class="news">
+            <div class="container">
+    
+                <div class="news-item">
+                    <h3>Upcoming Faculty Meeting</h3>
+                    <p>No Updates Yet! <br/> If Any-We Will Notify</p>
+                </div>
+                <div class="news-item">
+                    <h3>New Leave Policy</h3>
+                    <p>Faculty members must submit leave requests through the Faculty Leave Management System (FLMS) online portal Only .</p>
+                </div>
+            </div>
+        </section>
+         <div class="r">
+            <h1>Quick Links </h1>
+         </div>
+        <section class="quick-links">
+            <div class="container">
+                
+                <ul>
+                    <li><a href="#">Faculty Handbook</a></li>
+                    <li><a href="#">Leave Request Form</a></li>
+                    <li><a href="#">Administrative Policies</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Faculty Leave Management</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+ -->
